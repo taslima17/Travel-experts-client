@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import useAuth from '../../Hooks/useAuth';
 
 const MyBooking = () => {
@@ -9,18 +10,18 @@ const MyBooking = () => {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/bookings/${user?.email}`;
+        const url = `https://warm-plains-37053.herokuapp.com/bookings/${user?.email}`;
         console.log(url)
         fetch(url).then(res => res.json()).then(data => {
             setBookings(data)
         })
-    }, [])
+    }, [bookings])
 
 
     const handleDelete = (id) => {
         const confirmed = window.confirm('are you sure to delete?')
         if (confirmed) {
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://warm-plains-37053.herokuapp.com/delete/${id}`, {
                 method: "DELETE"
             }).then(res => res.json()).then(data => {
 
@@ -36,12 +37,38 @@ const MyBooking = () => {
     }
     return (
         <div>
+            <h1 className="my-5 text-success"> See Yor Booked Packages</h1>
             {bookings.length ?
-                bookings.map(b => <div><h1>{b?.Destination}</h1> <br />
+                <Table responsive="sm" striped bordered hover variant="light" className="container mt-5 text-success ">
+                    <thead>
+                        <tr className="p-5">
+                            <th>Destination</th>
 
-                    <button onClick={() => handleDelete(b._id)}>Delete This Package</button>
-                </div>) : <h3>You didn't Book anyThing</h3>
-            }
+                            <th>Duration</th>
+
+
+                            <th>Cost</th>
+
+
+                            <th>Delete Package</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {bookings.map(b => <tr className="p-5">
+                            <td>{b?.Destination}</td>
+
+
+                            <td>For 3 days 2 nights</td>
+
+                            <td>{b.Cost}</td>
+
+                            <td><button className="border-0 rounded bg-dark p-3 text-white" onClick={() => handleDelete(b._id)}>Delete Package</button></td>
+                        </tr>)}
+
+                    </tbody>
+                </Table> : <h3>You didn't Book anyThing</h3>}
+
 
         </div>
     );

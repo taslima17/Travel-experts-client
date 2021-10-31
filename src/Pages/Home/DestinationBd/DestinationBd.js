@@ -12,7 +12,7 @@ const DestinationBd = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/places')
+        fetch('https://warm-plains-37053.herokuapp.com/places')
             .then(res => res.json())
             .then(data => {
                 setPlaces(data);

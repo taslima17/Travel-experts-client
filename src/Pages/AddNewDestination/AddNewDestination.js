@@ -5,7 +5,7 @@ const AddNewDestination = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/addNewplace', {
+        fetch('https://warm-plains-37053.herokuapp.com/addNewplace', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -22,14 +22,15 @@ const AddNewDestination = () => {
     }
     return (
         <div>
+            <h1 className="text-success my-5">Insert a New Destination for Traveller</h1>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="w-50 bg-dark py-5 mx-auto" onSubmit={handleSubmit(onSubmit)}>
                 <input placeholder="Place Name" {...register("name", { required: true })} />
                 <input placeholder="image url" {...register("img", { required: true })} />
                 <input placeholder="place Details" {...register("details", { required: true })} />
                 <input type="number" placeholder="minimum price" {...register("price", { required: true })} />
 
-                <input type="submit" />
+                <input className="bg-success text-white" type="submit" />
             </form>
         </div>
     );

@@ -9,7 +9,7 @@ const CustomerFeedBack = () => {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/feedbacks').then(res => res.json()).then(data => {
+        fetch('https://warm-plains-37053.herokuapp.com/feedbacks').then(res => res.json()).then(data => {
             setFeedback(data);
             setLoading(false)
         })

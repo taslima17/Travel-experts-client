@@ -23,9 +23,9 @@ const Header = () => {
 
                             <Nav.Link className="link" as={Link} to="/flights">Flights</Nav.Link>
                             <Nav.Link className="link" as={Link} to="/hotels">Hotels</Nav.Link>
-                            <Nav.Link className="link" as={Link} to="/manageAllPackages">ManagePackages</Nav.Link>
-                            <Nav.Link className="link" as={Link} to="/addDestination">InsertDestination</Nav.Link>
-                            <Nav.Link className="link" as={Link} to="/myBookings">My Bookings</Nav.Link>
+                            {user.email ? <Nav.Link className="link" as={Link} to="/manageAllPackages">ManagePackages</Nav.Link> : ""}
+                            {user.email ? <Nav.Link className="link" as={Link} to="/addDestination">InsertDestination</Nav.Link> : ""}
+                            {user.email ? <Nav.Link className="link" as={Link} to="/myBookings">My Bookings</Nav.Link> : ""}
                             <Nav.Link className="link" as={Link} to="/login"> {user.email ? <button onClick={logOut} style={{ background: "none", border: "0" }}>LogOut {user.displayName}</button> : <Button variant="dark">Login</Button>} </Nav.Link>
 
 

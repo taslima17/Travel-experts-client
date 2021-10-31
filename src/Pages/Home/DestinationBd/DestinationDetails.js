@@ -13,7 +13,7 @@ const DestinationDetails = () => {
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
         data.status = "pending";
-        fetch('http://localhost:5000/booking', {
+        fetch('https://warm-plains-37053.herokuapp.com/booking', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const DestinationDetails = () => {
 
     //fetch data by id
     useEffect(() => {
-        const url = `http://localhost:5000/places/${id}`;
+        const url = `https://warm-plains-37053.herokuapp.com/places/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setPlace(data))
@@ -51,14 +51,14 @@ const DestinationDetails = () => {
             </div>
             <form className="w-100" onSubmit={handleSubmit(onSubmit)}>
 
-                <input placeholder="Destination" {...register("Destination")} value={place.name} />
-                <input placeholder="First Name" {...register("firstName")} value={name[0]} />
+                <input placeholder="Destination" {...register("Destination", { required: true })} value={place.name} />
+                <input placeholder="First Name" {...register("firstName", { required: true })} value={name[0]} />
 
-                <input placeholder="Last Name"  {...register("LastName")} value={name[1]} /> <br />
+                <input placeholder="Last Name"  {...register("LastName", { required: true })} value={name[1]} /> <br />
 
                 <input type="email" placeholder="Email" {...register("Email")} value={user.email} />
                 <br />
-                <input placeholder="Phone Number"  {...register("PhonNumber")} />
+                <input placeholder="Phone Number"  {...register("PhonNumber", { required: true })} />
                 <br />
                 <select {...register("gender")}>
                     <option value="female">female</option>
@@ -67,13 +67,13 @@ const DestinationDetails = () => {
                 </select>
                 <br />
 
-                <input value="3" type="number" placeholder="Day you wants to stay" {...register("days")} />
+                <input value="3" type="number" placeholder="Day you wants to stay" {...register("days", { required: true })} />
 
-                <input type="number" placeholder="cost" value={place.price} {...register("Cost")} />
+                <input type="number" placeholder="cost" value={place.price} {...register("Cost", { required: true })} />
                 <br />
                 <div className="d-flex align-items-center mx-auto">
                     <label className="ms-5" htmlFor="Entery Date">Entry Date :</label>
-                    <input className="w-50" type="date" placeholder="Entry Date"  {...register("Entry_Date")} />
+                    <input className="w-50" type="date" placeholder="Entry Date"  {...register("Entry_Date", { required: true })} />
                     <br />
                 </div>
 

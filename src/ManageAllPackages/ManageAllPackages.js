@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import useAuth from '../Hooks/useAuth';
 
 const ManageAllPackages = () => {
@@ -6,27 +7,28 @@ const ManageAllPackages = () => {
     const [bookings, setBookings] = useState([]);
     const [approve, setApprove] = useState(false);
     const { user } = useAuth();
-    const [users, setUsers] = useState([]);
+
     useEffect(() => {
-        fetch('http://localhost:5000/booking')
+        fetch('https://warm-plains-37053.herokuapp.com/booking')
             .then(res => res.json())
             .then(data => setPackages(data))
-    }, [])
+    }, [packages])
+    // console.log(packages)
     const handleApprove = data => {
-        console.log(data)
-        const newUser = { Destination: data.Destination, firstName: data.firstName, LastName: data.LastName, Email: data.Email, PhonNumber: data.PhonNumber, gender: data.gender, days: data.days, Cost: data.Cost, Entry_Date: data.Entry_Date, status: "approved" }
-        setUsers(newUser);
-        if (users.Email !== undefined) {
-            fetch(`http://localhost:5000/bookings/${data._id}`, {
+        // console.log(data)
+        data.status = "approved";
+
+        if (data.Email) {
+            fetch(`https://warm-plains-37053.herokuapp.com/bookings/${data._id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': "application/json"
                 },
-                body: JSON.stringify(users)
+                body: JSON.stringify(data)
             }).then(res => res.json()).then(data => {
                 alert("Approved your package")
                 console.log(data);
-                setApprove(true);
+
             })
         }
 
@@ -35,7 +37,7 @@ const ManageAllPackages = () => {
     const handleDelete = (id) => {
         const confirmed = window.confirm('are you sure to delete?')
         if (confirmed) {
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://warm-plains-37053.herokuapp.com/delete/${id}`, {
                 method: "DELETE"
             }).then(res => res.json()).then(data => {
 
@@ -51,16 +53,42 @@ const ManageAllPackages = () => {
     }
     return (
         <div>
-            {packages.length ? packages.map(b => <div><h1>{b?.Destination}</h1> <br />
-                <p className="text-danger">{approve ? "" : "pending"}</p>
-                <button className="btn-primary" onClick={() => handleApprove(b)}>{approve ? "Approved" : "Approve"}</button>
-                <button onClick={() => handleDelete(b._id)}>Delete This Package</button>
+
+            <h1 className="text-success my-5">Manage All Packages as an Admin</h1>
+            {packages.length ?
+                <Table responsive="sm" className="text-success mt-5 container" striped bordered hover variant="light">
+                    <thead>
+                        <tr className="p-5">
+                            <th>Destination</th>
+                            <th>User Email</th>
+                            <th>Duration</th>
+
+                            <th>Status</th>
+                            <th>Cost</th>
+
+                            <th>Click for Update Status</th>
+                            <th>Click for Delete Package</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {packages.map(b => <tr className="p-5">
+                            <td>{b?.Destination}</td>
+
+                            <td>{b.Email}</td>
+                            <td>For 3 days 2 nights</td>
+                            <td>{b?.status}</td>
+                            <td>{b.Cost}</td>
+                            <td><button className="border-0 rounded bg-success p-3 text-white" onClick={() => handleApprove(b)}>{b.status === "approved" ? "Approved" : "Approve"}</button></td>
+                            <td><button className="border-0 rounded bg-danger p-3 text-white" onClick={() => handleDelete(b._id)}>Delete Package</button></td>
+                        </tr>)}
+
+                    </tbody>
+                </Table> : <h3>No Order Placed</h3>}
 
 
-            </div>)
-                : <h3>No Order Placed</h3>
 
-            }
+
         </div>
     );
 };

@@ -12,14 +12,16 @@ const Login = () => {
         googleSignin().then(res => {
             const user = res.user;
             console.log(res.user)
-            setUser(user);
             history.push(redirect_url);
+            setUser(user);
+
         }
         ).catch(e => console.log(e.message))
     }
     return (
-        <div>
-            <button onClick={handleGoogleSignin}>Sign In using Google</button>
+        <div className="my-5">
+            <h4 className="py-5 text-secondary">Please Login</h4>
+            <button className="p-3 bg-danger text-white w-50 fs-4" onClick={handleGoogleSignin}>Google Sign In </button>
         </div>
     );
 };
