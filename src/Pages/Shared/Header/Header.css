@@ -9,8 +9,12 @@ font-weight: 600;
     color: rgb(8, 118, 126);
 }
 .link{
+    color: darkblue;
     font-size: 15px;
     font-weight: 500;
     margin-left: 20px;
-    color: rgb(173, 135, 31);
+    
+}
+.link:hover{
+    color: darkblue;
 }

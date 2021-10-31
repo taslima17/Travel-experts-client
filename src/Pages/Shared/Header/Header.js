@@ -6,10 +6,10 @@ import logo from '../../../travelexperts-logo.jpg'
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 const Header = () => {
-    const { googleSignin, user, logOut } = useAuth();
+    const { user, logOut } = useAuth();
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" sticky="top">
+            <Navbar sticky="top" collapseOnSelect expand="lg">
                 <Container>
                     <Navbar.Brand as={Link} to="/home">
                         <h1 className="logo">Travel <span>Experts</span></h1>

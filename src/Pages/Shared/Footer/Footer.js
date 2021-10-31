@@ -12,8 +12,8 @@ const Footer = () => {
                     <i class="fab fa-instagram-square"></i>
                 </div>
             </div>
-            <div>
-                <div>
+            <div className="d-flex">
+                <div className="title">
                     <h5>Support</h5>
                     <li>
                         Policy
@@ -22,7 +22,7 @@ const Footer = () => {
                     <li>FAQs</li>
                     <li>Join as a Trip Designer</li>
                 </div>
-                <div>
+                <div className="title">
                     <h5>Legal</h5>
                     <li>Terms Of Use</li>
                     <li>Privacy and Cookies Statement</li>

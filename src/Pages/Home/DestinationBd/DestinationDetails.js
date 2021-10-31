@@ -43,14 +43,14 @@ const DestinationDetails = () => {
     console.log(place)
 
     return (
-        <div className="d-flex flex-lg-nowrap flex-wrap justify-content-between">
-            <div>
+        <div className="p-5 d-flex flex-lg-nowrap flex-wrap ">
+            <div className="p-2">
                 <img width="50%" src={place.img} alt="" />
-                <h5>{place.name}</h5>
-                <p>{place.details}</p>
+                <h5 className="mt-3">{place.name}</h5>
+                <p className="w-50 mx-auto">{place.details}</p>
             </div>
-            <form className="w-100" onSubmit={handleSubmit(onSubmit)}>
-
+            <form className="w-100 py-2 bg-dark" onSubmit={handleSubmit(onSubmit)}>
+                <h3 className="p-2 text-white fw-bold">Book Your Destination</h3>
                 <input placeholder="Destination" {...register("Destination", { required: true })} value={place.name} />
                 <input placeholder="First Name" {...register("firstName", { required: true })} value={name[0]} />
 
@@ -77,7 +77,7 @@ const DestinationDetails = () => {
                     <br />
                 </div>
 
-                <input type="submit" value="Book" />
+                <input type="submit" className="bg-success text-white fs-5  border-0" value="Book" />
             </form>
         </div>
     );

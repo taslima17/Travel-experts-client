@@ -3,6 +3,9 @@ div li{
     text-align: left;
     padding: 10px;
 }
+.title{
+    text-align: left;
+}
 div li:hover{
     text-decoration: underline;
     color: rgb(55, 158, 161);
