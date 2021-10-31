@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+.banner{
+    background-image: url(https://images.designtrends.com/wp-content/uploads/2016/03/29113710/Tropical-Island-Beach-Wallpaper.jpg);
+    background-size: cover;
+    padding:  280px 100px;
+    text-align: left;
+   
+    color: white;
+}
+.banner h1{
+    font-size:4rem;
+    
+}
+.banner p{
+    font-size: 1.5rem;font-family: 'Satisfy', cursive;
+}

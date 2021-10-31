@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Angelina",
+        "img": "https://media.istockphoto.com/photos/passport-photo-of-a-young-arabic-woman-picture-id564567808?k=6&m=564567808&s=170667a&w=0&h=k-yVvI2MYW8IJvvk8Zv3RQC67-kMmL6gPwfAXfuBv8E=",
+        "profession": "Teacher",
+        "feedback": "My ride and driver were great, he was very nice, talkative but not too much and ON TIME which is very important to me. I give your service a 5 out of 5 stars."
+    },
+    {
+        "name": "Sachin",
+        "img": "http://4.bp.blogspot.com/-tKHyh7sDP0s/T_xj5oV6-tI/AAAAAAAACz4/Ylps7Lrwlik/s1600/Sachin.jpg",
+        "profession": "Cricketer",
+        "feedback": "Our experience was truely memorable and hastle free. All thanks to Travel Experts "
+    },
+    {
+        "name": "margareta",
+        "img": "https://images.hivisasa.com/1200/It9Rrm02rE20.jpg",
+        "profession": "Doctor",
+        "feedback": "Looks exactly what is posted here . Great service and awesome stay"
+    },
+    {
+        "name": "Jhon Son",
+        "img": "http://media.istockphoto.com/photos/latin-young-man-in-a-studio-picture-id494711330?k=6&m=494711330&s=170667a&w=0&h=7ac_j78C-P4mD5JaqHkZ5hRvfSmmZUTq3c0HKl08jak=",
+        "profession": "Teacher",
+        "feedback": "Our experience was truely memorable and hastle free. All thanks to Travel Experts"
+    },
+    {
+        "name": "Emalaia",
+        "img": "https://ceohangout.com/wp-content/uploads/2015/12/Depositphotos_28487793_-e1451565162834.jpg",
+        "profession": "Doctor",
+        "feedback": "My ride and driver were great, he was very nice, talkative but not too much and ON TIME which is very important to me. I give your service a 5 out of 5 stars."
+    },
+    {
+        "name": "Petter",
+        "img": "https://media.istockphoto.com/photos/portrait-of-a-happy-young-man-smiling-on-gray-background-picture-id185815404?k=6&m=185815404&s=612x612&w=0&h=5ETUJgJITLROE4zemjbusUCFR7LHgUosKe-B12dueTU=",
+        "profession": "Engineer",
+        "feedback": "Our experience was truely memorable and hastle free. All thanks to Travel Experts "
+    }
+]
